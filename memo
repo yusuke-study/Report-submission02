@@ -1,0 +1,4 @@
+音源をDLするURL
+https://raw.githubusercontent.com/yusuke-study/Report-submission01/master/sound/20140219_cuba_libre.mp3
+	      	
+	<audio src="/sounds/sound.mp3" controls></audio>
