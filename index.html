@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	</body>
+    <!-- モバイル用：デバイス幅、拡大縮小禁止 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>音源再生ページ</title>
+	<body>
+    <!-- jQuery -->
+    <script src="lib/jquery.min.js"></script>
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="lib/bootstrap/css/bootstrap.min.css">
+    <script src="lib/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="lib/common.css"><!-- 表示の微調整用 -->
+
+    <!-- 外部CSS/JavaScript -->
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
+    <script src="js/main.js"></script>
+    
+	<!-- 画像自動切換え -->
+	<style type="text/css">
+	#photo {
+    	width: 800px;
+    	height: 500px;
+    	margin: 0 auto;
+    	text-align: left;
+    	overflow: hidden;
+    	position: relative;
+	}
+	
+	#photo img {
+    	top: 0;
+    	left: 0;
+    	position: absolute;
+	}
+	</style>
+	
+	<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+    	var setImg = '#photo';
+    	var fadeSpeed = 5000;
+    	var switchDelay = 11000;
+	
+    	$(setImg).children('img').css({opacity:'0'});
+    	$(setImg + ' img:first').stop().animate({opacity:'1',zIndex:'20'},fadeSpeed);
+	
+    	setInterval(function(){
+        	$(setImg + ' :first-child').animate({opacity:'0'},fadeSpeed).next('img').animate({opacity:'1'},fadeSpeed).end().appendTo(setImg);
+    	},switchDelay);
+	});
+	</script>
+	
+  </head>
+  <body>
+  
+    <div class="container">
+	<h1 style="text-align:center">
+	
+	<b>音源再生 画像自動切換えページ</b>
+	<p> </p>
+	<div id="photo">
+	<img src="photo/画像1.jpeg" width="800" height="800" alt="">
+	<img src="photo/画像2.jpeg" width="800" height="800" alt="">
+	<img src="photo/画像3.jpeg" width="800" height="800" alt="">
+	<img src="photo/画像4.jpeg" width="800" height="800" alt="">
+	<img src="photo/画像5.jpeg" width="800" height="800" alt="">
+	<img src="photo/画像6.jpeg" width="800" height="800" alt="">
+	
+	</div>
+	
+	<font size="3">
+	<p>上記の画像は一定時間過ぎると自動的に切り替わります。</p>
+	<p>　</p>
+	<p>下記の再生ボタンを押すと、音源が数秒後に流れます。もう一度押すと音源が停止します。</p>
+	<p>停止ボタンを押すと、音源が停止します。</p>
+	<p>Loopボタンを押すと、音源が流れ続きます。(音源時間約2分)</p>
+	<p>　</p>
+	</font>
+	
+	</h1>
+	
+      <!-- ボタン -->
+      <div style="text-align:center">
+      <button type="button" id="btnPlay"><img src="photo/再生ボタン.png" widty="100px" height="100px"/></button>
+      <button type="button" id="btnStop"><img src="photo/停止ボタン.png" widty="100px" height="100px"/></button>
+      <button type="button" id="btnLoop"><img src="photo/リピートボタン.png" widty="100px" height="100px"/></button>
+
+
+    </div>
+  </body>
+</html>
